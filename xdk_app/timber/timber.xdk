@@ -4,9 +4,9 @@
     "creationData": {
       "projectTypeName": "com.intel.xdk.projecttype.webapp",
       "src": "webapp/template-flip-view/sample.zip",
-      "projectGuid": "dceecba1-5559-4f1d-b813-16f68a7dca2f",
-      "lastModifiedDate": 1445704337595,
-      "creationDate": 1445704337382
+      "projectGuid": "576065ed-dfb4-45b2-a9c9-1c46235d0c8e",
+      "lastModifiedDate": 1445710346365,
+      "creationDate": 1445710346177
     },
     "sourceDirectory": "www",
     "cordovaPluginsDirectory": "plugins",
@@ -35,7 +35,7 @@
           "android-installLocation": "auto"
         },
         "isActive_": true,
-        "appName_": "treetup",
+        "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "legacy",
@@ -66,7 +66,7 @@
           "android-installLocation": "auto"
         },
         "isActive_": true,
-        "appName_": "treetup",
+        "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "legacy",
@@ -96,7 +96,7 @@
           "ios-configuration": "adhoc"
         },
         "isActive_": true,
-        "appName_": "treetup",
+        "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "legacy",
@@ -121,7 +121,7 @@
         "name_": "Windows8",
         "preferences_": {},
         "isActive_": true,
-        "appName_": "treetup",
+        "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "legacy",
@@ -146,7 +146,7 @@
         "name_": "WebApp",
         "preferences_": {},
         "isActive_": true,
-        "appName_": "treetup",
+        "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "legacy",
@@ -169,7 +169,7 @@
         "name_": "Firefox",
         "preferences_": {},
         "isActive_": true,
-        "appName_": "treetup",
+        "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "legacy",
@@ -192,7 +192,7 @@
         "name_": "Chrome",
         "preferences_": {},
         "isActive_": true,
-        "appName_": "treetup",
+        "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "legacy",
@@ -215,7 +215,7 @@
         "name_": "Facebook",
         "preferences_": {},
         "isActive_": true,
-        "appName_": "treetup",
+        "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "legacy",
@@ -238,7 +238,7 @@
         "name_": "WP81",
         "preferences_": {},
         "isActive_": true,
-        "appName_": "treetup",
+        "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
           "mode": "legacy",
