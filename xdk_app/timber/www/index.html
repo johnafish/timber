@@ -62,7 +62,26 @@
         }
     </style>
 
-
+<script> 
+        function viewTree(treeId) {
+            //fake href
+            $("#treeLink").click();
+            //get data
+            var score, address, type;
+            fireBaseReference.child("trees").child(treeID).on("value", function(snap) {
+                treeValues = snap.val();
+                score = treeValues.score;
+                address = treeValues.address;
+                type = treeValues.type;
+                //clear old text, set new text
+                document.getElementById("treeScore").innerHTML = score;
+                document.getElementById("treeAddress").innerHTML = address;
+                document.getElementById("treeType").innerHTML = type;
+              });
+            
+        }
+        
+        </script>
 
 
 </head>
@@ -83,7 +102,7 @@
             <h1>Home</h1>
             <a href="#profilePage" data-transition="flip" class="button icon user" style="float:left"></a>
 
-            <a href="#treePage" data-transition="pop" treeId="bob" class="button icon user" style="float:left"> </a>
+            <a id = "treeLink" href="#treePage" data-transition="pop" style="display:none;"> </a>
         </header>
 
         <div class="pages">
@@ -110,6 +129,7 @@
                 </div>
             </div>
         </div>
+    
     </div>
 
 
@@ -134,14 +154,14 @@
                 <div class="content" style="text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); color: #fff;">
                     <div style="position: absolute; width: 100%;">
                         <div style="float:left; margin-top: 40px; letter-spacing: -2px;">
-                            <h1> Tree Name</h1>
+                            <h1 id="treeType"> Tree Type</h1>
                             <br>
-                            <h2> Address </h2>
+                            <h2 id = "treeAddress"> Address </h2>
                         </div>
 
                         <div style="float:right; font-size: 28px; margin-top: 60px; margin-right: 20px;">
                             <div class="vote up_white" style="margin-top:-25px; margin-left: 2px;"> </div>
-                            42
+                            <r id="treeScore"> 42</r>
                             <div class="vote down_white" style="margin-left:2px;"> </div>
                         </div>
 
