@@ -1,0 +1,8 @@
+
+*.cer
+
+xdk_app/p12
+
+xdk_app/keychainSomething
+
+xdk_app/timber.mobileprovision
