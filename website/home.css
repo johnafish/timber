@@ -1,0 +1,26 @@
+* {
+
+
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+}
+#background {
+    position: absolute;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    background-image: url("https://markbc.files.wordpress.com/2010/07/dsc_1096_0032.jpg");
+    filter: blur(5px);
+    -webkit-filter: blur(5px)
+}
+h1 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+    text-align: center;
+    font-size: 8em;
+    opacity: 0.87;
+    color: white;
+    margin: 100px 0px;
+}
