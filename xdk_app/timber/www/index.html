@@ -91,7 +91,7 @@
         
         function showPopUp(treeID, treeType, treeAddress) {
             //change inner html
-            $("#popUpType").html(treeType);
+            $("#popUpType").html(treeType.split(",")[0]);
             $("#popUpAddress").html(treeAddress);
             $("#currentTree").attr("currentTree", treeID);
             //display block
@@ -130,6 +130,11 @@
                 vote(1, $("#currentTree").attr("currentTree"));
             }
         }); 
+        
+        $("#reportButton").click(function() {
+            sendMail($("#currentTree").attr("currentTree"));
+            alert("Issue report succesfully sent.");
+        });
         
         $("a").click(function(){
         // if source is from create to treetup, post the thing
@@ -243,7 +248,7 @@
                         
                             <a href = "#createTreetupPage" style = "text-decoration:none;"><div style="left:10%; right:10%; margin-top: 100px;  margin-left: auto; margin-right:auto; height:160px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:68px; font-size: 24px; color: #8BC34A; opacity: 0.87; text-shadow:none;"> Make a Treetup</div></a>
                         
-                        <a href = "#createTreetupPage" style = "text-decoration:none;"><div style="left:10%; right:10%; margin-top: 10px;  margin-left: auto; margin-right:auto; height:60px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:22px; font-size: 16px; color: #c34a4a; opacity: 0.87; text-shadow:none;"> Flag It</div></a>
+                        <div id = "reportButton" style="left:10%; right:10%; margin-top: 10px;  margin-left: auto; margin-right:auto; height:60px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:22px; font-size: 16px; color: #c34a4a; opacity: 0.87; text-shadow:none;"> Flag It</div>
                         
                     </div>
 
