@@ -1,0 +1,27 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 300;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+span {
+    font-weight: 900;
+    color: #81C784;
+}
+header {
+    background-color: #689F38;
+    padding: 20px;
+    box-shadow: 0px 0px 20px -4px rgba(0, 0, 0, 0.75);
+}
+h1  {
+    font-size: 5em;
+    font-weight: 900;
+    opacity: 0.87;
+    color: white;
+}
+h2 {
+    margin: 20px;
+    font-size: 2em;
+}
