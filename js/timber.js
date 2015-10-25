@@ -33,7 +33,7 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
     removeTree('person');
   }
   createPerson(person);
-  map.setCenter(person);
+ // map.setCenter(person);
 
   // treeQuery.on("key_entered", function(key,location,distance){
   //     currentDistance = distanceBetween(longitude, latitude, location[1], location[0], "K")
