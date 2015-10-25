@@ -83,12 +83,17 @@
               });
             
         }
+    
+    function popUpToTree(){
+        var treeID = $("#currentTree").attr("currentTree");
+        viewTree(treeID);
+    }
         
         function showPopUp(treeID, treeType, treeAddress) {
             //change inner html
             $("#popUpType").html(treeType);
             $("#popUpAddress").html(treeAddress);
-                
+            $("#currentTree").attr("currentTree", treeID);
             //display block
             $("#popUp").css( "display", "block" );
         }
@@ -98,21 +103,51 @@
             $("#popUp").css( "display", "none" );
         }
     $( document ).ready(function() {
+        $("#vup").click(function() {
+            if($(this).attr("class") == "vote up_white" && $("#vdown").attr("class") == "vote down_white" ) {
+                $(this).attr("class", "vote up_green");
+                vote(1, $("#currentTree").attr("currentTree"));
+            } else  if($(this).attr("class") == "vote up_white" && $("#vdown").attr("class") == "vote down_green" ) {
+                $(this).attr("class", "vote up_green");
+                $("#vdown").attr("class", "vote down_white");
+                vote(2, $("#currentTree").attr("currentTree"));
+            } else {
+                $(this).attr("class", "vote up_white");
+                vote(-1, $("#currentTree").attr("currentTree"));
+            }
+        });
+        
+        $("#vdown").click(function() {
+            if($(this).attr("class") == "vote down_white" && $("#vup").attr("class") == "vote up_white" ) {
+                $(this).attr("class", "vote down_green");
+                vote(-1, $("#currentTree").attr("currentTree"));
+            } else  if($(this).attr("class") == "vote down_white" && $("#vup").attr("class") == "vote up_green" ) {
+                $(this).attr("class", "vote down_green");
+                $("#vup").attr("class", "vote up_white");
+                vote(-2, $("#currentTree").attr("currentTree"));
+            } else {
+                $(this).attr("class", "vote down_white");
+                vote(1, $("#currentTree").attr("currentTree"));
+            }
+        }); 
+        
         $("a").click(function(){
         // if source is from create to treetup, post the thing
 
             if($(this).attr('href') == "#treetupPage" && $(this).parent().parent().attr("id") == "createtreetupview") {
                 //post the thing
                 $("#navSource").attr("navSource", "createTreetup");
-                console.log("asdfghjkl");
+              
                 //go to the treetup
-                alert($("#dateInput").val());
+               
                 var date = new Date($("#dateInput").val());
-                alert(date.getTime());
+               
                 var link = createLink($("#currentTree").attr("currentTree") , date);
-                alert(link);
-                //intel.xdk.device.launchExternal(link);
-//                window.open(link, "_system");
+                var share = "<a href = '" + link + "' > " + link + "</a> <br> ";
+                share = '<a href="https://twitter.com/share" class="twitter-share-button" id="twitter" data-url="'+link+'" data-text="Join my treetup!" data-size="large">Tweet</a>';
+                console.log(share);
+                $("#shareTreetup").html(share );
+                
                
             } else { // else default behaviour
                return true; 
@@ -139,7 +174,7 @@
     <div class="view" id="mainview">
         <header>
             <h1>Home</h1>
-            <a href="#profilePage" data-transition="flip" class="button icon user" style="float:left"></a>
+            <a  href="#profilePage" data-transition="flip" class="button icon user" style="float:left; display:none;"></a>
 
             <a id = "treeLink" href="#treePage" data-transition="pop" style="display:none;"> </a>
         </header>
@@ -153,7 +188,7 @@
                 </div>
                 <div id="popUp" style="display:none; position:absolute; top:80%; height:14%; right:60px; left: 20px; background-color: #fff; border-radius:2px; box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75); z-index: 1001; min-height: 60px; color: black; letter-spacing:0px; opacity:0.87">
                     <div style="float:left; margin-top: 15px; font-size:24px;margin-left: 15px; color: #8BC34A">
-                        <r id = "popUpType">Tree type </r>
+                        <r id = "popUpType" onclick = "popUpToTree()">Tree type </r>
                         <div style=" margin-top: 1px; font-size:12px; color: #000; opacity:0.54;">
                         <r id = "popUpAddress">67 Erb St. W, Waterloo</r>
                         <br>
@@ -161,8 +196,8 @@
                     </div>
                     
                     <div style="float:right; font-size: 28px; margin-top: 38px; margin-right: 40px;">
-                        <div class="vote up_white" style="margin-top:-25px; margin-left: 2px;"> </div>
-                        <div class="vote down_white" style="margin-left:2px;"> </div>
+                        <div id = "vup" class="vote up_white" style="margin-top:-25px; margin-left: 2px;"> </div>
+                        <div id = "vdown" class="vote down_white" style="margin-left:2px;"> </div>
                     </div>
                     <div style="clear:both;"></div>
                 </div>
@@ -234,6 +269,7 @@
                 
                             <div style="left:10%; right:10%; margin-top: 100px;  margin-left: auto; margin-right:auto; height:160px; text-align:center; padding-top:68px; font-size: 24px; color: #8BC34A; opacity: 0.87; text-shadow:none;"> 
                     <input type="datetime-local" id="dateInput"> 
+                                <div id = "shareTreetup"> </div>
                 </div>
                         
                         
@@ -279,7 +315,7 @@
 
         </div>
 
-
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 </body>
 
 </html>
