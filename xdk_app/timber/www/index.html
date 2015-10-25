@@ -63,7 +63,7 @@
     </style>
 
 <script> 
-        function viewTree(treeId) {
+        function viewTree(treeID) {
             //fake href
             $("#treeLink").click();
             //get data
@@ -73,14 +73,29 @@
                 score = treeValues.score;
                 address = treeValues.address;
                 type = treeValues.type;
+                type = type.split(",")[0];
+                console.log(type);
                 //clear old text, set new text
-                document.getElementById("treeScore").innerHTML = score;
-                document.getElementById("treeAddress").innerHTML = address;
-                document.getElementById("treeType").innerHTML = type;
+                $("#treeScore").html(score);
+                $("#treeAddress").html(address);
+                $("#treeType").html(type);
               });
             
         }
         
+        function showPopUp(treeID, treeType, treeAddress) {
+            //change inner html
+            $("#popUpType").html(treeType);
+            $("#popUpAddress").html(treeAddress);
+                
+            //display block
+            $("#popUp").css( "display", "block" );
+        }
+    
+        function closePopUp(){
+            //display none
+            $("#popUp").css( "display", "none" );
+        }
         </script>
 
 
@@ -112,13 +127,13 @@
                 <div id="map" style="display: block; margin: auto; width: 100%; height: 100%; position:absolute; position:absolute;">
 
                 </div>
-                <div style="position:absolute; top:80%; height:14%; right:60px; left: 20px; background-color: #fff; border-radius:2px; box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75); z-index: 1001; min-height: 60px; color: black; letter-spacing:0px; opacity:0.87">
+                <div id="popUp" style="display:none; position:absolute; top:80%; height:14%; right:60px; left: 20px; background-color: #fff; border-radius:2px; box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75); z-index: 1001; min-height: 60px; color: black; letter-spacing:0px; opacity:0.87">
                     <div style="float:left; margin-top: 15px; font-size:24px;margin-left: 15px; color: #8BC34A">
-                        Tree name
+                        <r id = "popUpType">Tree type </r>
                         <div style=" margin-top: 1px; font-size:12px; color: #000; opacity:0.54;">
-                        67 Erb St. W, Waterloo
+                        <r id = "popUpAddress">67 Erb St. W, Waterloo</r>
                         <br>
-                    </div>
+                        </div>
                     </div>
                     
                     <div style="float:right; font-size: 28px; margin-top: 38px; margin-right: 40px;">
@@ -153,22 +168,24 @@
             <div class="panel" title="Tree" id="treePage" data-footer="none" selected="true">
                 <div class="content" style="text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); color: #fff;">
                     <div style="position: absolute; width: 100%;">
-                        <div style="float:left; margin-top: 40px; letter-spacing: -2px;">
+                        <div style="float:left; margin-top: 40px; letter-spacing: 0px;">
                             <h1 id="treeType"> Tree Type</h1>
                             <br>
-                            <h2 id = "treeAddress"> Address </h2>
+                            <h2 id = "treeAddress" style="text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.6); color: #fff;"> Address </h2>
                         </div>
 
                         <div style="float:right; font-size: 28px; margin-top: 60px; margin-right: 20px;">
-                            <div class="vote up_white" style="margin-top:-25px; margin-left: 2px;"> </div>
-                            <r id="treeScore"> 42</r>
-                            <div class="vote down_white" style="margin-left:2px;"> </div>
+<!--                            <div class="vote up_white" style="margin-top:-25px; margin-left: 2px;"> </div>-->
+                            <r id="treeScore" style = "font-size:30px;"> 42</r>
+<!--                            <div class="vote down_white" style="margin-left:2px;"> </div>-->
                         </div>
 
                         <div style="clear:both;"></div>
-                        <div style="position: absolute; background-color:rgba(255, 255, 255, 0.5); margin-top:50%; border-radius: 100px; width: 200px; height:200px; margin-left: auto; margin-right:auto;left: 0; right: 0; ">
-                            <div style="width:200px; text-align:center; padding-top:90px; font-size: 18px;"> Make a Treetup</div>
-                        </div>
+                        
+                            <a href = "#createTreetupPage"><div style="left:10%; right:10%; margin-top: 100px;  margin-left: auto; margin-right:auto; height:160px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:68px; font-size: 24px; color: #8BC34A; opacity: 0.87; text-shadow:none;"> Make a Treetup</div></a>
+                        
+                        <div style="left:10%; right:10%; margin-top: 10px;  margin-left: auto; margin-right:auto; height:60px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:22px; font-size: 16px; color: #c34a4a; opacity: 0.87; text-shadow:none;"> Flag It</div>
+                        
                     </div>
 
                 </div>
@@ -176,6 +193,31 @@
         </div>
     </div>
 
+    
+    
+    
+    
+    <div class="view" id="createtreetupview">
+        <header>
+            <h1> </h1>
+            <a href="#treePage" data-transition="fade" class="button icon left" style="float:left"></a>
+            <a href="#treetupPage" data-transition="fade" class="button icon check" style="float:right">Create Treetup</a>
+        </header>
+
+        <div class="pages">
+            <!-- main panel -->
+            <div class="panel" title=" " id="createTreetupPage" data-footer="none" selected="true">
+                
+                            <div style="left:10%; right:10%; margin-top: 100px;  margin-left: auto; margin-right:auto; height:160px; text-align:center; padding-top:68px; font-size: 24px; color: #8BC34A; opacity: 0.87; text-shadow:none;"> 
+                    <input type="datetime-local"> 
+                </div>
+                        
+                        
+                        
+                 
+            </div>
+        </div>
+    </div>
         
         
         

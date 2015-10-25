@@ -7,7 +7,7 @@ var latitude = -80.5256895;
 var longitude = 43.4633228;
 var numtrees = 0;
 
-var queryRadius = 20.3;
+var queryRadius = 0.3;
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
@@ -33,7 +33,7 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
     removeTree('person');
   }
   createPerson(person);
-//  map.setCenter(person);
+ // map.setCenter(person);
 
   // treeQuery.on("key_entered", function(key,location,distance){
   //     currentDistance = distanceBetween(longitude, latitude, location[1], location[0], "K")
@@ -54,9 +54,16 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
   //   removeTree(key);
   // });
 
-  if(closestDistance<0.01 && closestKey!=lastKey){
-      lastKey = closestKey;
-      showNearbyTree(closestKey);
+  if(closestDistance<0.01){
+      if (closestKey!=lastKey) {
+          lastKey = closestKey;
+          treeReference.child(key).once("value", function(snapshot) {
+              var closestTree = snapshot.val();
+              showPopUp(key, closestTree.type, closestTree.address);
+          });
+      }
+  } else {
+      closePopup();
   }
 }, function error(err){
     console.log("error");
@@ -96,7 +103,7 @@ function showNearbyTree(key){
 
 function createPerson(position) {
     var marker = new google.maps.Marker({
-    //   icon: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Person_icon_BLACK-01.svg/2000px-Person_icon_BLACK-01.svg.png",
+      icon: "js/user.png",
       position: new google.maps.LatLng(position.lat, position.lng),
       optimized: true,
       map: map
@@ -107,15 +114,14 @@ function createPerson(position) {
 
 function createTree(tree, treeID) {
 	var marker = new google.maps.Marker({
-	icon: "https://maps.gstatic.com/intl/en_us/mapfiles/markers2/measle_blue.png",
+	icon: "js/tree.png",
 	position: new google.maps.LatLng(tree.l[1], tree.l[0]),
 	optimized: true,
 	map: map
 	});
 	markers[treeID] = marker;
 	marker.addListener('click', function(){
-  		//createLink(treeID, new Date());
-  		vote(1, treeID);
+  		viewTree(treeID);
   })
 }
 
