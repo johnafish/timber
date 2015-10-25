@@ -7,7 +7,7 @@ var latitude = -80.5256895;
 var longitude = 43.4633228;
 var numtrees = 0;
 
-var queryRadius = 20.3;
+var queryRadius = 0.3;
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
@@ -15,7 +15,7 @@ var options = {
 };
 
 var lastKey;
-var closestDistance = queryRadius+3;
+
 var closestKey;
 
 var markers = {};
@@ -23,48 +23,41 @@ var markers = {};
 var watchPosition = navigator.geolocation.watchPosition(function(position) {
   latitude = position.coords.longitude;
   longitude = position.coords.latitude;
-  // var treeQuery = geoFire.query({
-  //     center: [latitude,longitude],
-  //     radius: queryRadius
-  // });
 
   var person = {lat: longitude, lng: latitude}
   if (markers['person'] != undefined) {
     removeTree('person');
   }
   createPerson(person);
- // map.setCenter(person);
 
-  // treeQuery.on("key_entered", function(key,location,distance){
-  //     currentDistance = distanceBetween(longitude, latitude, location[1], location[0], "K")
-  //     if(currentDistance<closestDistance){
-  //         closestDistance=currentDistance;
-  //         closestKey = key;
-  //     }
-  //     treeReference.child(key).on("value", function(snapshot) {
-  //     	tree = snapshot.val();
-  //     	fireBaseReference.child("_geofire").child(key).on("value", function(snap) {
-  //     		treeGeo = snap.val();
-  //     		createTree(treeGeo, key);
-  //     	})
-  //     })
-  // });
-
-  // treeQuery.on("key_exited", function(key,location,distance){
-  //   removeTree(key);
-  // });
-
-  if(closestDistance<0.01){
-      if (closestKey!=lastKey) {
-          lastKey = closestKey;
-          treeReference.child(key).once("value", function(snapshot) {
-              var closestTree = snapshot.val();
-              showPopUp(key, closestTree.type, closestTree.address);
-          });
-      }
-  } else {
-      closePopup();
+  var closestDistance = Infinity;
+  for (var i in markers) {
+      if(i='person'){
+          break;
+      } else{
+      fireBaseReference.child("_geofire").child(i).once("value", function(snapshot){
+          var geometry = snapshot.val();
+          var distance = distanceBetween(latitude, longitude, geometry.l[1], geometry.l[0], "K");
+          if(distance<closestDistance){
+              closestDistance=distance;
+              closestKey=i;
+          }
+          if(closestDistance<0.01){
+              if (closestKey!=lastKey) {
+                  lastKey = closestKey;
+                  treeReference.child(key).once("value", function(snapshot) {
+                      var closestTree = snapshot.val();
+                      showPopUp(key, closestTree.type, closestTree.address);
+                  });
+              }
+          } else {
+              closePopup();
+          }
+      });
   }
+  }
+
+
 }, function error(err){
     console.log("error");
 }, options);
@@ -76,10 +69,7 @@ var treeQuery = geoFire.query({
 
 treeQuery.on("key_entered", function(key,location,distance){
     currentDistance = distanceBetween(longitude, latitude, location[1], location[0], "K")
-    if(currentDistance<closestDistance){
-        closestDistance=currentDistance;
-        closestKey = key;
-    }
+
     treeReference.child(key).on("value", function(snapshot) {
       tree = snapshot.val();
       fireBaseReference.child("_geofire").child(key).on("value", function(snap) {
@@ -99,6 +89,12 @@ function showNearbyTree(key){
     treeReference.child(key).once("value", function(snapshot) {
         alert(snapshot.val());
     });
+}
+function showPopUp(key, type, addy){
+    console.log("close")
+}
+function closePopup(){
+    console.log("not close");
 }
 
 function createPerson(position) {
