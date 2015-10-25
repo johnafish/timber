@@ -7,12 +7,15 @@ var latitude = -80.5256895;
 var longitude = 43.4633228;
 var numtrees = 0;
 
-var queryRadius = 0.3;
+var queryRadius = 0.2;
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
   maximumAge: 0
 };
+
+var markers = new Array();
+
 var watchPosition = navigator.geolocation.watchPosition(function(position) {
   latitude = position.coords.longitude;
   longitude = position.coords.latitude;
@@ -21,10 +24,12 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
       radius: queryRadius
   });
   var person = {lat: longitude, lng: latitude}
+  removeMarkers();
   createPerson(person);
   map.setCenter(person);
 
   treeQuery.on("key_entered", function(key,location,distance){
+      console.log(distance);
   	if (treesInQuery.indexOf(key) === -1) {
   	    treesInQuery.push(key);
   	}
@@ -56,7 +61,19 @@ function createPerson(position) {
       optimized: true,
       map: map
     });
-    return marker;
+    var circle = new google.maps.Circle({
+    strokeColor: "#6D3099",
+    strokeOpacity: 0.7,
+    strokeWeight: 1,
+    fillColor: "#B650FF",
+    fillOpacity: 0.35,
+    map: map,
+    center: position,
+    radius: 2*(queryRadius * 1000),
+    draggable: false
+  });
+  markers.push(marker);
+  markers.push(circle);
 }
 
 function createTree(tree) {
@@ -66,4 +83,12 @@ function createTree(tree) {
     optimized: true,
     map: map
   });
+  markers.push(marker);
+}
+
+function removeMarkers() {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers = new Array();
 }
