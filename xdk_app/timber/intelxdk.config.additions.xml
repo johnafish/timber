@@ -34,3 +34,5 @@
 <intelxdk:crosswalk xwalk-command-line="--disable-pull-to-refresh-effect" />
 <!-- ignore gpu blacklist for larger collection of gpu accelerated devices -->
 <intelxdk:crosswalk xwalk-command-line="--ignore-gpu-blacklist" />
+
+<!--<acces origin = "*" />-->

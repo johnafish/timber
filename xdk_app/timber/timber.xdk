@@ -5,7 +5,7 @@
       "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "webapp/template-flip-view/sample.zip",
       "projectGuid": "576065ed-dfb4-45b2-a9c9-1c46235d0c8e",
-      "lastModifiedDate": 1445804963240,
+      "lastModifiedDate": 1445815518419,
       "creationDate": 1445710346177
     },
     "sourceDirectory": "www",

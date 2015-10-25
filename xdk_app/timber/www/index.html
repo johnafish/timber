@@ -27,6 +27,7 @@
     <!--    <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>-->
     <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>
+        <script src="js/email.js"></script>
     <style>
         .content:before {
             content: "";
@@ -141,21 +142,25 @@
 
             if($(this).attr('href') == "#treetupPage" && $(this).parent().parent().attr("id") == "createtreetupview") {
                 //post the thing
-                $("#navSource").attr("navSource", "createTreetup");
+               // $("#navSource").attr("navSource", "createTreetup");
               
                 //go to the treetup
                
                 var date = new Date($("#dateInput").val());
                
                 var link = createLink($("#currentTree").attr("currentTree") , date);
-                var share = "<a href = '" + link + "' > " + link + "</a> <br> ";
-                share = '<a href="https://twitter.com/share" class="twitter-share-button" id="twitter" data-url="'+link+'" data-text="Join my treetup!" data-size="large">Tweet</a>';
-                console.log(share);
-                $("#shareTreetup").html(share );
-                
+               $("#shareTreetup").css( "display", "block" );
+               // var share = "<a href = '" + link + "' > " + link + "</a> <br> ";
+               // share = '<a href="https://twitter.com/share" class="twitter-share-button" id="twitter" data-url="'+link+'" data-text="Join my treetup!" data-size="large">Tweet</a>';
+               // $("#shareTreetup").html(share );
+//                intel.xdk.device.launchExternal('twitter://post?message=' + link);
+            //    console.log(link);
+               // window.open('twitter:///user?screen_name=xerxesnoble', '_system');
                
             } else { // else default behaviour
+                $("#shareTreetup").css( "display", "none" );
                return true; 
+                
             }
         });
         
@@ -246,9 +251,9 @@
 
                         <div style="clear:both;"></div>
                         
-                            <a href = "#createTreetupPage" style = "text-decoration:none;"><div style="left:10%; right:10%; margin-top: 100px;  margin-left: auto; margin-right:auto; height:160px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:68px; font-size: 24px; color: #8BC34A; opacity: 0.87; text-shadow:none;"> Make a Treetup</div></a>
+                            <a href = "#createTreetupPage" style = "text-decoration:none;"><div style="left:10%; right:10%; margin-top: 100px;  margin-left: auto; margin-right:auto; height:160px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:68px; font-size: 24px; color: #8BC34A; opacity: 0.87; text-shadow:none; border-radius: 3px;"> Make a Treetup</div></a>
                         
-                        <div id = "reportButton" style="left:10%; right:10%; margin-top: 10px;  margin-left: auto; margin-right:auto; height:60px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:22px; font-size: 16px; color: #c34a4a; opacity: 0.87; text-shadow:none;"> Flag It</div>
+                        <div id = "reportButton" style="left:10%; right:10%; margin-top: 10px;  margin-left: auto; margin-right:auto; height:60px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:22px; font-size: 16px; color: #c34a4a; opacity: 0.87; text-shadow:none; border-radius: 3px;"> Flag It</div>
                         
                     </div>
 
@@ -274,7 +279,10 @@
                 
                             <div style="left:10%; right:10%; margin-top: 100px;  margin-left: auto; margin-right:auto; height:160px; text-align:center; padding-top:68px; font-size: 24px; color: #8BC34A; opacity: 0.87; text-shadow:none;"> 
                     <input type="datetime-local" id="dateInput"> 
-                                <div id = "shareTreetup"> </div>
+                                <br>
+                                <br>
+                                <div id = "shareTreetup" style = "display:none; left:0; right:0; margin-right: auto; margin-left:auto;"><br><br> <img src = "img/tweet_button.png" style = "width:100px; height: auto; "></div>
+                                
                 </div>
                         
                         

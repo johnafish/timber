@@ -1,5 +1,5 @@
-function sendMail(treeID, message) {
-    
+function sendMail(treeID) {
+
     var flaggedTree = treeReference.child(treeID.toString());
     var flaggedGeo = fireBaseReference.child("_geofire").child(treeID.toString());
     var treeData, treeType, treeLong, treeLat;
@@ -30,7 +30,7 @@ function sendMail(treeID, message) {
             ],
           'autotext': 'true',
           'subject': 'Maintenance issue with tree #'+treeID,
-          'html': '<html><body>A user has reported the following issue:<br /><table><tr><td>Tree ID:</td><td>'+treeID+'</td></tr><tr><td>Tree Type:</td><td>'+treeType+'</td></tr><tr><td>Longitude:</td><td>'+treeLong+'</td></tr><tr><td>Latitude:</td><td>'+treeLat+'</td></tr><tr><td>Concern:</td><td>'+message+'</td></tr></table></body></html>'
+          'html': '<html><body>A user has reported the following issue:<br /><table><tr><td>Tree ID:</td><td>'+treeID+'</td></tr><tr><td>Tree Type:</td><td>'+treeType+'</td></tr><tr><td>Longitude:</td><td>'+treeLong+'</td></tr><tr><td>Latitude:</td><td>'+treeLat+'</td></tr></table></body></html>'
         }
       }
      }).done(function(response) {
