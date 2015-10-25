@@ -26,15 +26,22 @@ function initMap() {
 
 }
 
+function addMarker(lat, lng, name) {
+	var marker = new google.maps.Marker({
+		map: map,
+		position: new google.maps.LatLng(lat,lng),
+		title: name
+	});
+}
+
 function hideMarker(marker) {
 	marker.setMap(null);
 }
 
-//Edit to add image.
-function createMarker(treeID) {
-	var marker = new google.maps.Marker({
-		map: map,
-		position: new google.maps.LatLng(trees[treeID][0], trees[treeID][1]),
-		title: 
-	});
-}
+// function createMarker() {
+// 	var marker = new google.maps.Marker({
+// 		map: map,
+// 		position: new google.maps.LatLng(lat,lng),
+// 		title: name
+// 	});
+// }
