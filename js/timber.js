@@ -22,6 +22,15 @@ var treeQuery = geoFire.query({
 
 var trees = {};
 var treeGeo, tree, treeLong, treeLat;
+
+//cannot change the global variables trees and stuff inside the functions?????
+
+function setTrees(newTrees) {
+	trees = newTrees;
+	console.log('trees set to ' + newTrees);
+}
+
+	
 treeQuery.on("key_entered", function(key,location,distance){
 
 	if (treesInQuery.indexOf(key) === -1) {
@@ -36,6 +45,9 @@ treeQuery.on("key_entered", function(key,location,distance){
     		treeLat = treeGeo.l[1];
 
     		trees[key] = [treeLong, treeLat];
+    		//console.log(trees);
+    		setTrees(trees);
     	})
-    });
+    })
+    console.log(trees);
 });
