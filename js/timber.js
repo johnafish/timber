@@ -7,12 +7,16 @@ var latitude = -80.5256895;
 var longitude = 43.4633228;
 var numtrees = 0;
 
-var queryRadius = 0.5;
+var queryRadius = 0.3;
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
   maximumAge: 0
 };
+
+var lastKey;
+var closestDistance = queryRadius+3;
+var closestKey;
 
 var markers = {};
 
@@ -23,14 +27,18 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
       center: [latitude,longitude],
       radius: queryRadius
   });
+
   var person = {lat: longitude, lng: latitude}
   removeMarkers();
   createPerson(person);
   map.setCenter(person);
 
   treeQuery.on("key_entered", function(key,location,distance){
-      console.log(distance);
-
+      currentDistance = distanceBetween(longitude, latitude, location[1], location[0], "K")
+      if(currentDistance<closestDistance){
+          closestDistance=currentDistance;
+          closestKey = key;
+      }
       treeReference.child(key).on("value", function(snapshot) {
       	tree = snapshot.val();
       	fireBaseReference.child("_geofire").child(key).on("value", function(snap) {
@@ -44,11 +52,21 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
     removeTree(key);
   });
 
+  if(closestDistance<0.01 && closestKey!=lastKey){
+      lastKey = closestKey;
+      showNearbyTree(closestKey);
+  }
 }, function error(err){
     console.log("error");
 }, options);
 
 var treeGeo;
+
+function showNearbyTree(key){
+    treeReference.child(key).once("value", function(snapshot) {
+        alert(snapshot.val());
+    });
+}
 
 function createPerson(position) {
     var marker = new google.maps.Marker({
@@ -84,11 +102,25 @@ function removeMarkers() {
         markers[i].setMap(null);
     }
 }
-
+function distanceBetween(lat1, lon1, lat2, lon2, unit) {
+	var radlat1 = Math.PI * lat1/180
+	var radlat2 = Math.PI * lat2/180
+	var radlon1 = Math.PI * lon1/180
+	var radlon2 = Math.PI * lon2/180
+	var theta = lon1-lon2
+	var radtheta = Math.PI * theta/180
+	var dist = Math.sin(radlat1) * Math.sin(radlat2) + Math.cos(radlat1) * Math.cos(radlat2) * Math.cos(radtheta);
+	dist = Math.acos(dist)
+	dist = dist * 180/Math.PI
+	dist = dist * 60 * 1.1515
+	if (unit=="K") { dist = dist * 1.609344 }
+	if (unit=="N") { dist = dist * 0.8684 }
+	return dist
+}
 var map;
 function initMap() {
 	if (navigator.geolocation) {
-		
+
 		navigator.geolocation.getCurrentPosition(function(position) {
 			latitude = position.coords.latitude;
 			longitude = position.coords.longitude;
@@ -114,14 +146,14 @@ function initMap() {
 
 function createLink(treeID, d) {
 	meetingTime = d.getTime();
-	console.log('http://timberapp.ml/treetup.php?time='+Math.floor((meetingTime/1000))+'&tree='+treeID);
+	var linkString = 'http://timberapp.ml/treetup.php?time='+Math.floor((meetingTime/1000))+'&tree='+treeID;
+    return linkString;
 }
 
 function vote(delta, treeID) {
 	var currScore
 	treeReference.child(treeID.toString()).child('score').on('value', function(snapshot){
 		currScore = snapshot.val();
-		console.log(currScore);
 	})
 	currScore += delta;
 	treeReference.child(treeID.toString()).child('score').set(currScore);
