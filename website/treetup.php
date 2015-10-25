@@ -14,6 +14,7 @@ $time = $_GET["time"];
     <h1>LETS <span>TREE</span>TUP</h1>
 </header>
     <h2 id="when"></h2>
+    <div id="map"></div>
 <script>
 var tree = "<?php echo $treeID; ?>";
 var time = parseInt("<?php echo $time; ?>");
