@@ -114,8 +114,7 @@ function createTree(tree, treeID) {
 	});
 	markers[treeID] = marker;
 	marker.addListener('click', function(){
-  		//createLink(treeID, new Date());
-  		vote(1, treeID);
+  		viewTree(treeID);
   })
 }
 
