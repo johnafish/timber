@@ -32,30 +32,35 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
 
   var closestDistance = Infinity;
   for (var i in markers) {
-      if(closestDistance<0.01){
-          if (closestKey!=lastKey) {
-              lastKey = closestKey;
-              treeReference.child(closestKey).once("value", function(snapshot) {
-                  var closestTree = snapshot.val();
-                  showPopUp(closestKey, closestTree.type, closestTree.address);
-              });
-          }
-      } else {
-          closePopup();
-      }
+      
+      
       if(i=='person'){
           continue;
       } else{
-          fireBaseReference.child("_geofire").child(i).once("value", function(snapshot){
-          var geometry = snapshot.val();
-          var distance = distanceBetween(longitude, latitude, geometry.l[1], geometry.l[0], "K");
-          if(distance<closestDistance){
-              closestDistance=distance;
-              closestKey=i;
+         var dist = distanceBetween(markers[i].getPosition().lat(), markers[i].getPosition().lng(), longitude, latitude, "K");
+          if (dist < closestDistance) {
+                closestDistance = dist;
+                closestKey = i;
+             // console.log("i found something maybe", dist);
           }
-      });
+      }
   }
-  }
+    
+    if(closestDistance<0.01){
+          
+          lastKey = closestKey;
+          treeReference.child(closestKey).once("value", function(snapshot) {
+              var closestTree = snapshot.val();
+              console.log(closestKey, closestTree.type, closestTree.address);
+              showPopUp(closestKey, closestTree.type, closestTree.address);
+          });
+          
+      } else {
+          closePopUp();
+          closestDistance = Infinity;
+            closestKey = null;
+      }
+
 
 
 }, function error(err){

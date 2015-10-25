@@ -66,6 +66,7 @@
         function viewTree(treeID) {
             //fake href
             $("#treeLink").click();
+            $("#currentTree").attr("currentTree", treeID);
             //get data
             var score, address, type;
             fireBaseReference.child("trees").child(treeID).on("value", function(snap) {
@@ -96,6 +97,29 @@
             //display none
             $("#popUp").css( "display", "none" );
         }
+    $( document ).ready(function() {
+        $("a").click(function(){
+        // if source is from create to treetup, post the thing
+
+            if($(this).attr('href') == "#treetupPage" && $(this).parent().parent().attr("id") == "createtreetupview") {
+                //post the thing
+                $("#navSource").attr("navSource", "createTreetup");
+                console.log("asdfghjkl");
+                //go to the treetup
+                alert($("#dateInput").val());
+                var date = new Date($("#dateInput").val());
+                alert(date.getTime());
+                var link = createLink($("#currentTree").attr("currentTree") , date);
+                alert(link);
+                //intel.xdk.device.launchExternal(link);
+//                window.open(link, "_system");
+               
+            } else { // else default behaviour
+               return true; 
+            }
+        });
+        
+    });
         </script>
 
 
@@ -182,9 +206,9 @@
 
                         <div style="clear:both;"></div>
                         
-                            <a href = "#createTreetupPage"><div style="left:10%; right:10%; margin-top: 100px;  margin-left: auto; margin-right:auto; height:160px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:68px; font-size: 24px; color: #8BC34A; opacity: 0.87; text-shadow:none;"> Make a Treetup</div></a>
+                            <a href = "#createTreetupPage" style = "text-decoration:none;"><div style="left:10%; right:10%; margin-top: 100px;  margin-left: auto; margin-right:auto; height:160px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:68px; font-size: 24px; color: #8BC34A; opacity: 0.87; text-shadow:none;"> Make a Treetup</div></a>
                         
-                        <div style="left:10%; right:10%; margin-top: 10px;  margin-left: auto; margin-right:auto; height:60px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:22px; font-size: 16px; color: #c34a4a; opacity: 0.87; text-shadow:none;"> Flag It</div>
+                        <a href = "#createTreetupPage" style = "text-decoration:none;"><div style="left:10%; right:10%; margin-top: 10px;  margin-left: auto; margin-right:auto; height:60px; background-color:rgba(255, 255, 255, 0.87); text-align:center; padding-top:22px; font-size: 16px; color: #c34a4a; opacity: 0.87; text-shadow:none;"> Flag It</div></a>
                         
                     </div>
 
@@ -209,7 +233,7 @@
             <div class="panel" title=" " id="createTreetupPage" data-footer="none" selected="true">
                 
                             <div style="left:10%; right:10%; margin-top: 100px;  margin-left: auto; margin-right:auto; height:160px; text-align:center; padding-top:68px; font-size: 24px; color: #8BC34A; opacity: 0.87; text-shadow:none;"> 
-                    <input type="datetime-local"> 
+                    <input type="datetime-local" id="dateInput"> 
                 </div>
                         
                         

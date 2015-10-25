@@ -1,5 +1,20 @@
 function sendMail(treeID, message) {
     
+    var flaggedTree = treeReference.child(treeID.toString());
+    var flaggedGeo = fireBaseReference.child("_geofire").child(treeID.toString());
+    var treeData, treeType, treeLong, treeLat;
+
+    flaggedTree.once("value", function(snapshot) {
+      treeType = snapshot.val().type;
+    });
+
+    flaggedGeo.once("value", function(snapshot) {
+      treeLong = snapshot.val().l[0];
+      treeLat = snapshot.val().l[1];
+    });
+
+
+
     $.ajax({
       type: 'POST',
       url: 'https://mandrillapp.com/api/1.0/messages/send.json',
@@ -14,8 +29,8 @@ function sendMail(treeID, message) {
               }
             ],
           'autotext': 'true',
-          'subject': 'YOUR SUBJECT HERE!',
-          'html': 'A user has reported an issue at tree: #'+treeID+' ()'
+          'subject': 'Maintenance issue with tree #'+treeID,
+          'html': '<html><body>A user has reported the following issue:<br /><table><tr><td>Tree ID:</td><td>'+treeID+'</td></tr><tr><td>Tree Type:</td><td>'+treeType+'</td></tr><tr><td>Longitude:</td><td>'+treeLong+'</td></tr><tr><td>Latitude:</td><td>'+treeLat+'</td></tr><tr><td>Concern:</td><td>'+message+'</td></tr></table></body></html>'
         }
       }
      }).done(function(response) {
