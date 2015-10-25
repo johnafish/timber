@@ -20,9 +20,16 @@ var treeQuery = geoFire.query({
     radius: queryRadius
 });
 
+
 treeQuery.on("key_entered", function(key,location,distance){
-    treesInQuery.push(key);
-    treeReference.child(treesInQuery[treesInQuery.length-1]).on("value", function(snapshot) {
-      console.log(snapshot.val());
+	var tree;
+
+	if (treesInQuery.indexOf(key) === -1) {
+	    treesInQuery.push(key);
+	}
+    treeReference.child(key).on("value", function(snapshot) {
+    	tree = snapshot.val();
     });
+    geoFire.child(key).on("value", function(snapshot))
+
 });

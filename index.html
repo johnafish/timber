@@ -1,13 +1,26 @@
 <!DOCTYPE HTML>
-<html>
+<html style="height: 100%;">
 <head>
     <title>Treetup</title>
 </head>
-<body>
-    test page
-    <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
-    <script src="js/rsvp.min.js"></script>
-    <script src="js/geofire.min.js"></script>
-    <script src="js/timber.js"></script>
+<body style="width: 100%; height: 100%;">
+
+<script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="js/rsvp.min.js"></script>
+<script src="js/geofire.min.js"></script>
+<script src="js/timber.js"></script>
+<script src="js/treeMap.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSvB66Bvb1NwyMblo_HtvhgIzbY_T9_Q4&callback=initMap"></script>
+
+
+<div id="map" style="display: block; margin: auto; width: 90%; height: 100%;"></div>
+
+<script>
+// $(window).load(function() {
+// 	initMap();
+// });
+</script>
+
 </body>
 </html>
