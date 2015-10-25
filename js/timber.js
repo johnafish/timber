@@ -32,12 +32,12 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
 
   var closestDistance = Infinity;
   for (var i in markers) {
-      if(i='person'){
-          break;
+      if(i=='person'){
+          continue;
       } else{
-      fireBaseReference.child("_geofire").child(i).once("value", function(snapshot){
+          fireBaseReference.child("_geofire").child(i).once("value", function(snapshot){
           var geometry = snapshot.val();
-          var distance = distanceBetween(latitude, longitude, geometry.l[1], geometry.l[0], "K");
+          var distance = distanceBetween(longitude, latitude, geometry.l[1], geometry.l[0], "K");
           if(distance<closestDistance){
               closestDistance=distance;
               closestKey=i;
@@ -45,9 +45,9 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
           if(closestDistance<0.01){
               if (closestKey!=lastKey) {
                   lastKey = closestKey;
-                  treeReference.child(key).once("value", function(snapshot) {
+                  treeReference.child(closestKey).once("value", function(snapshot) {
                       var closestTree = snapshot.val();
-                      showPopUp(key, closestTree.type, closestTree.address);
+                      showPopUp(closestKey, closestTree.type, closestTree.address);
                   });
               }
           } else {
@@ -68,8 +68,6 @@ var treeQuery = geoFire.query({
 });
 
 treeQuery.on("key_entered", function(key,location,distance){
-    currentDistance = distanceBetween(longitude, latitude, location[1], location[0], "K")
-
     treeReference.child(key).on("value", function(snapshot) {
       tree = snapshot.val();
       fireBaseReference.child("_geofire").child(key).on("value", function(snap) {
@@ -89,12 +87,6 @@ function showNearbyTree(key){
     treeReference.child(key).once("value", function(snapshot) {
         alert(snapshot.val());
     });
-}
-function showPopUp(key, type, addy){
-    console.log("close")
-}
-function closePopup(){
-    console.log("not close");
 }
 
 function createPerson(position) {

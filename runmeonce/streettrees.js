@@ -3,6 +3,7 @@ var streettrees = {
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
 
 "trees": [
+{ "type": "Feature", "properties": { "SCORE": 0, "OBJECTID": 1337, "ASSET_ID": 10101337, "ADDRESS": "JOHN TREE", "COM_NAME": "Hackers", "LATIN_NAME": "Haxors", "OWNER": "City of Waterloo", "MAINT_BY": "City of Waterloo" }, "geometry": { "type": "Point", "coordinates": [ -80.5256996, 43.4633002 ] } },
 { "type": "Feature", "properties": { "SCORE": 0, "OBJECTID": 2044, "ASSET_ID": 10105966, "ADDRESS": "80 FATHER DAVID BAUER DR", "COM_NAME": "Ash, autumn purple", "LATIN_NAME": "Fraxinus americana autumn purple", "OWNER": "City of Waterloo", "MAINT_BY": "City of Waterloo" }, "geometry": { "type": "Point", "coordinates": [ -80.531382271999973, 43.465302315000031 ] } },
 { "type": "Feature", "properties": { "SCORE": 0, "OBJECTID": 2054, "ASSET_ID": 10127456, "ADDRESS": "16 LAUREL ST", "COM_NAME": "Pears", "LATIN_NAME": "Pyrus var", "OWNER": "City of Waterloo", "MAINT_BY": "City of Waterloo" }, "geometry": { "type": "Point", "coordinates": [ -80.518637446999946, 43.466123246000052 ] } },
 { "type": "Feature", "properties": { "SCORE": 0, "OBJECTID": 2055, "ASSET_ID": 10127501, "ADDRESS": "324 LONGFELLOW DR", "COM_NAME": "Maple, sugar", "LATIN_NAME": "Acer saccharum", "OWNER": "City of Waterloo", "MAINT_BY": "City of Waterloo" }, "geometry": { "type": "Point", "coordinates": [ -80.548800207999989, 43.465447898000036 ] } },
