@@ -20,16 +20,22 @@ var treeQuery = geoFire.query({
     radius: queryRadius
 });
 
-
+var trees = {};
+var treeGeo, tree, treeLong, treeLat;
 treeQuery.on("key_entered", function(key,location,distance){
-	var tree;
 
 	if (treesInQuery.indexOf(key) === -1) {
 	    treesInQuery.push(key);
 	}
+
     treeReference.child(key).on("value", function(snapshot) {
     	tree = snapshot.val();
-    });
-    geoFire.child(key).on("value", function(snapshot))
+    	fireBaseReference.child("_geofire").child(key).on("value", function(snap) {
+    		treeGeo = snap.val();
+    		treeLong = treeGeo.l[0];
+    		treeLat = treeGeo.l[1];
 
+    		trees[key] = [treeLong, treeLat];
+    	})
+    });
 });
