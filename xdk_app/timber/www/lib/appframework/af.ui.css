@@ -1,8 +1,689 @@
-* {
-    margin: 0px;
-    padding: 0px;
-    border: 0px;
+.ios7 {
+  font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+.ios7 .view{
+    background: #ebebeb; 
+    color: #fff;
+}
+.ios7 .view header {
+  background: #8BC34A;
+  color: #fff;
+  border: none;
+  border-bottom: 1px solid #c8c7cc;
+}
+.ios7 .view header .button {
+  color: #fff;
+  border-color: transparent;
+  font-size: 14px;
+  font-weight: normal;
+}
+.ios7 .view header h1 {
+  color: inherit;
+  text-shadow: none;
+}
+.ios7 .view header .backButton {
+  background: #f8f8f8;
+  color: #157dfb;
+  display: block;
+  position: absolute;
+  line-height: 44px;
+  left: 25px;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  padding: 0;
+  text-shadow: none;
+  background-color: transparent;
+  border: none;
+  border-color: transparent;
+  height: 44px;
+  top: auto;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding-left: 0;
+  text-align: center;
+  width: 50px;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.ios7 .view footer {
+  background: #f8f8f8;
+  color: black;
+  border-top: 1px solid #c8c7cc;
+  box-shadow: none;
+}
+.ios7 .view footer > a:not(.button) {
+  color: #606060;
+}
+.ios7 .view footer > a.pressed:not(.button) {
+  border-radius: 0;
+  background: transparent;
+}
+.ios7 .panel {
+  background: #eeeeee;
+}
+.ios7 .panel h2 {
+  color: inherit;
+}
+.ios7 .menuButton:after {
+  border-color: #157dfb;
+}
+.ios7 .list {
+  font-weight: normal;
+}
+.ios7 .list li {
+  margin-left: 10px;
+}
+.ios7 .list > li > a:after {
+  color: #d9d9d9;
+}
+.ios7 .button {
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 5px;
+  border-color: #157dfb;
+  color: #157dfb;
+  text-shadow: none;
+}
+.ios7 .backButton::before {
+  z-index: -1;
+  font-size: 22px;
+  position: absolute;
+  left: -20px;
+  text-align: center;
+  border-radius: 0;
+  border: none;
+  border-color: transparent;
+  box-shadow: none;
+  -webkit-transform: none;
+  transform: none;
+  font-family: 'chevron';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\f054";
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  background-color: transparent;
+}
+.ios7 .backButton::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border: none;
+}
+.ios7 .afPopup {
+  border: 1px solid #c8c7cc;
+  border-radius: 10px;
+  padding: 0px;
+  text-align: center;
+  color: inherit;
+  background: #f8f8f8;
+}
+.ios7 .afPopup > HEADER {
+  padding: 10px 0;
+}
+.ios7 .afPopup > DIV {
+  padding-bottom: 10px;
+}
+.ios7 .afPopup > FOOTER {
+  border-top: 1px solid #aaa;
+}
+.ios7 .afPopup > FOOTER > A.center {
+  width: 100%!important;
+}
+.ios7 .afPopup .button {
+  border: none;
+  width: 50%;
+  margin: 0;
+  background: transparent;
+  color: #157dfb;
+  padding: 12px 0;
+  border-radius: 0;
+}
+.ios7 .afPopup .button.pressed {
+  background: transparent;
+}
+.ios7 .afPopup a:not(:first-of-type) {
+  border-left: 1px solid #c8c7cc;
+}
+.ios7 .button.pressed {
+  font-weight: bold;
+  background: white;
+}
+.ios7 #af_actionsheet {
+  background-color: transparent;
+  color: black;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-top: transparent 1px solid;
+  box-shadow: 0px -1px 2px rgba(0, 0, 0, 0);
+}
+.ios7 #af_actionsheet a:first-child {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.ios7 #af_actionsheet a:nth-last-child(2) {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.ios7 #af_actionsheet a.cancel {
+  font-weight: bold;
+  margin: 9px 0;
+  border-radius: 5px;
+  background-color: white;
+  color: #157dfb;
+}
+.ios7 #af_actionsheet a.red {
+  background-color: white;
+  color: red;
+}
+.ios7 .button.previous {
+  border: none;
+}
+.ios7 .button.next {
+  border: none;
+}
+.ios7 .button.previous::after {
+  color: #157dfb;
+  z-index: -1;
+  font-size: 22px;
+  position: absolute;
+  top: 2px;
+  left: -25px;
+  text-align: center;
+  border-radius: 0;
+  border: none;
+  border-color: transparent;
+  box-shadow: none;
+  -webkit-transform: none;
+  transform: none;
+  font-family: 'chevron';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\f054";
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  background-color: transparent;
+}
+.ios7 .button.next::after {
+  color: #157dfb;
+  z-index: -1;
+  font-size: 22px;
+  position: absolute;
+  top: 6px;
+  right: -25px;
+  text-align: center;
+  border-radius: 0;
+  border: none;
+  border-color: transparent;
+  box-shadow: none;
+  -webkit-transform: none;
+  transform: none;
+  font-family: 'chevron';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  content: "\f054";
+  background-color: transparent;
+}
+.ios7 .button.gray {
+  color: #999;
+  background-color: transparent;
+}
+.ios7 .button.yellow {
+  color: #F1C222;
+  background-color: transparent;
+}
+.ios7 .button.red {
+  color: #b20000;
+  background-color: transparent;
+}
+.ios7 .button.green {
+  color: #009C0C;
+  background-color: transparent;
+}
+.ios7 .button.orange {
+  color: #FF8000;
+  background-color: transparent;
+}
+.ios7 .button.black {
+  color: black;
+  background-color: transparent;
+}
+.ios7 .button.slate {
+  color: #171F28;
+  background-color: transparent;
+}
+.ios7 .af-badge {
+  border: none;
+  box-shadow: none;
+  font-size: 12px;
+}
+.ios7 input[type="range"] {
+  -webkit-appearance: none;
+  background-color: #c7c7c7;
+  height: 2px;
+  position: relative;
+  top: -10px;
+  margin-top: 15px;
+  border-radius: 2px;
+}
+.ios7 input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  position: relative;
+  z-index: 1;
+  width: 25px;
+  height: 25px;
+  border-radius: 60px;
+  border: 1px solid #c7c7c7;
+  background: white;
+}
+.ios7 input.toggle:checked + label {
+  background: #4cd964;
+  line-height: -1em;
+  -webkit-transition: background 150ms;
+  transition: background 150ms;
+}
+.ios7 input.toggle:checked + label > span {
+  transform: translate3d(24px, 0, 0);
+  -webkit-transform: translate3d(24px, 0, 0);
+}
+.ios7 input.toggle + label:after {
+  content: '';
+}
+.ios7 input.toggle + label {
+  position: relative;
+  margin: 5px;
+  border-radius: 50px;
+  display: block;
+  height: 28px;
+  width: 50px;
+  border: 1px solid #c7c7c7;
+  left: 33%;
+  float: none;
+}
+.ios7 input.toggle + label > span {
+  background: white;
+  border: 1px solid #c7c7c7;
+  top: -1px;
+  left: -1px;
+  height: 29px;
+}
+.ios7 .button-grouped:not(.vertical) > .button:first-child {
+  border-top-left-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+.ios7 .button-grouped:not(.vertical) > .button:last-child {
+  border-top-right-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+.ios7 .button-grouped *,
+.ios7 .button-grouped  > .button:first-child,
+.ios7 .button-grouped.vertical *,
+.ios7 .button-grouped.vertical  > .button:last-child,
+.ios7 header .button-grouped  > .button {
+  border-color: #157dfb;
+}
+.ios7 .button-grouped  > .button {
+  border-radius: 0;
+}
+.ios7 .button-grouped  > .button.pressed,
+.ios7 header .button-grouped  > .button.pressed {
+  color: white;
+  background: #157dfb;
+}
+.ios7 #af_actionsheet a,
+.ios7 #af_actionsheet a.cance {
+  background-image: none;
+  text-shadow: none;
+  box-shadow: none;
+  font-weight: normal;
+  border-radius: 0;
+  border: none;
+  -webkit-box-shadow: none;
+  color: #157dfb;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 0px;
+  line-height: 40px;
+  font-size: 20px;
+  margin-bottom: 1px;
+}
+.ios7 footer  > a.pressed:not(.button),
+.ios7 footer  > a.icon.pressed:not(.button):before {
+  color: #157dfb;
+}
+.ios7 input.toggle + label:before,
+.ios7 input.toggle:checked + label:before {
+  content: '';
+}
+.ios7 input[type="radio"]:checked:not(.toggle) + label:before,
+.ios7 input[type="checkbox"]:checked:not(.toggle) + label:before {
+  background: #007aff;
+  color: white;
+}
+.ios7 input[type="radio"]:not(.toggle) + label:before,
+.ios7 input[type="checkbox"]:not(.toggle) + label:before {
+  background: white;
+  border: 1px solid #c7c7c7;
+  border-radius: 30px;
+}
+
+
+.android,
+.android .view,
+.android .view .pages {
+  font: 14px 'Roboto', sans-serif;
+  background: #ebebeb;
+  color: #fff;
+  border-color: #fff;
+}
+.android.light .view,
+.android.light .view .pages {
+  background: #FDFDFD;
+  color: #000;
+}
+.android .view header {
+  background: #8BC34A;
+  color: inherit;
+  border-color: #689F38;
+}
+.android .view header .button {
+  color: inherit;
+  background: none;
+  font-size: 14px;
+  box-shadow: none;
+}
+.android .view header .backButton {
+  background: inherit;
+  color: inherit;
+}
+.android .view footer {
+  box-shadow: none;
+  background: inherit;
+  border-top: 2px solid #33b5e5;
+  border-bottom: none;
+  padding: 0;
+}
+.android .view footer > a:not(.button) {
+  color: inherit;
+  top: 0px;
+}
+.android .view footer > a.pressed:not(.button) {
+  border: 0px;
+  border-top: 1px solid #33b5e5;
+  border-radius: 0px;
+  background: none;
+}
+.android .view footer > a.icon.pressed:not(.button):before {
+  color: inherit;
+}
+.android .menuButton:after {
+  border-color: white;
+}
+.android .af-badge {
+  border: none;
+}
+.android .list {
+  background: inherit;
+  color: inherit;
+  border-color: #303030;
+}
+.android .list .divider {
+  color: black;
+}
+.android .panel h2 {
+  color: inherit;
+}
+.android .collapsed:after {
+  border-top: 6px solid;
+}
+.android .collapsed:before {
+  border: 2px solid;
+}
+.android .expanded:after {
+  border-bottom: 6px solid;
+}
+.android .expanded:before {
+  border: 2px solid;
+}
+.android .afScrollbar {
+  background: white !important;
+}
+.android input[type="range"] {
+  -webkit-appearance: none;
+  background-color: #ccc;
+  height: 2px !important;
+  position: relative;
+  top: -10px;
+  margin-top: 15px;
+}
+.android input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  position: relative;
+  z-index: 1;
+  width: 21px;
+  height: 21px;
+  border-radius: 40px;
+  background: #33b5e5;
+}
+.android input.toggle + label:after {
+  color: inherit;
+}
+.android input.toggle + label {
+  border-radius: 0;
+}
+.android input.toggle + label > span {
+  border-radius: 0;
+  top: 0;
+  width: 27px;
+  height: 29px;
+}
+.android input.toggle:checked + label {
+  background: #33b5e5;
+}
+.android label {
+  color: inherit;
+}
+.android input[type="checkbox"] + label:before {
+  border-radius: 0;
+}
+.android input[type="checkbox"]:not(.toggle):checked + label:before {
+  color: #33b5e5;
+  background: white;
+}
+.android .button {
+  border-radius: 0;
+  border: none;
+  background: #424343;
+  border-color: transparent;
+  color: inherit;
+  text-shadow: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+.android .button.previous::after {
+  width: 20px;
+  height: 20px;
+  background-color: inherit;
+  top: 5px;
+  left: -12px;
+  border-radius: 0;
+  box-shadow: none;
+  border-color: transparent;
+}
+.android .button.next::after {
+  width: 20px;
+  height: 20px;
+  background-color: inherit;
+  top: 5px;
+  right: -12px;
+  border-radius: 0;
+  box-shadow: none;
+  border-color: transparent;
+}
+.android header .button-grouped > .button {
+  border-color: #777;
+}
+.android .button-grouped * {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-left-width: 0;
+  box-shadow: none;
+}
+.android .button-grouped.vertical * {
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  border-bottom-width: 0;
+}
+.android .button-grouped.vertical .button:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+.android .afPopup {
+  border: solid 1px #aaa;
+  padding: 0;
+  border-radius: 0;
+  -webkit-transform: none;
+  transform: none;
+  -webkit-transition: none;
+  transition: none;
+  background: inherit;
+  background-color: rgba(0, 0, 0, 0.9);
+  color: inherit;
+}
+.android .afPopup > HEADER {
+  font-weight: normal;
+  font-size: 20px;
+  text-align: left;
+  padding: 10px;
+}
+.android .afPopup > DIV {
+  font-size: 14px;
+  text-align: left;
+  padding: 10px;
+  margin: 0;
+  border-top: solid 1px #aaa;
+  border-bottom: solid 1px #aaa;
+}
+.android .afPopup > FOOTER {
+  background: #bbb;
+}
+.android .afPopup > FOOTER > A#cancel {
+  margin-left: 10px;
+  width: 120px;
+}
+.android .afPopup > FOOTER > A#action {
+  margin-right: 10px;
+  width: 120px;
+}
+.android .afPopup > FOOTER > A.center {
+  margin: 8px;
+}
+.android #af_actionsheet {
+  border: #666 1px solid;
+  border-top: #33b5e5 3px solid;
+  background: #555;
+  color: inherit;
+  margin: -20px 20px 0 20px;
+  padding: 0px;
+}
+.android #af_actionsheet a {
+  border-radius: 0;
+  border: 0px solid #777;
+  background: #424343;
+  color: inherit;
+  line-height: 50px;
+  margin-bottom: 1px;
+}
+.android #af_actionsheet a.cancel {
+  margin-bottom: 0px;
+  background: #424343;
+  color: red;
+}
+.android.light .menuButton:after {
+  border-color: black;
+}
+.android.light .afScrollbar {
+  background: black !important;
+}
+.android.light .button {
+  background: #eee;
+  border-color: #D1D1D1;
+}
+.android.light .afPopup {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.android.light #af_actionsheet {
+  border: #bbb 1px solid;
+  border-top: #33b5e5 3px solid;
+  background: #bbb;
+}
+.android.light #af_actionsheet a {
+  background: #fff;
+}
+.android .view .panel {
+  background: inherit;
+  color: inherit;
+}
+.android .collapsed:before,
+.android .expanded:before {
+  border-color: inherit;
+}
+.android .collapsed:after,
+.android .expanded:after {
+  border-top-color: inherit;
+}
+.android select,
+.android textarea,
+.android input[type="text"],
+.android input[type=search],
+.android input[type="password"],
+.android input[type="datetime"],
+.android input[type="datetime-local"],
+.android input[type="date"],
+.android input[type="month"],
+.android input[type="time"],
+.android input[type="week"],
+.android input[type="number"],
+.android input[type="email"],
+.android input[type="url"],
+.android input[type="tel"],
+.android input[type="color"],
+.android .input-group {
+  background: inherit;
+  color: inherit;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #ccc;
+}
+.android:not(.light) input[type="radio"]:not(.toggle):checked + label:before {
+  background: #33b5e5;
+  border: 2px solid white;
+}
+.android .button.pressed,
+.android header .button-grouped  > .button.pressed {
+  background: #33b5e5;
+  border-color: #33b5e5;
+}
+.android .afPopup  > FOOTER  > A,
+.android.light .afPopup  > FOOTER  > A {
+  background: #fff;
+  color: #111;
+}
+
+
+
 #af_actionsheet {
   position: absolute;
   left: 0px;
@@ -481,303 +1162,7 @@
   left: 0px;
 }
 
-.android,
-.android .view,
-.android .view .pages {
-  font: 14px 'Roboto', sans-serif;
-  background: #8BC34A;
-  color: #fff;
-  border-color: #fff;
-}
-.android.light .view,
-.android.light .view .pages {
-  background: #FDFDFD;
-  color: #000;
-}
-.android .view header {
-  background: inherit;
-  color: inherit;
-  border-color: #689F38;
-}
-.android .view header .button {
-  color: inherit;
-  background: none;
-  font-size: 14px;
-  box-shadow: none;
-}
-.android .view header .backButton {
-  background: inherit;
-  color: inherit;
-}
-.android .view footer {
-  box-shadow: none;
-  background: inherit;
-  border-top: 2px solid #33b5e5;
-  border-bottom: none;
-  padding: 0;
-}
-.android .view footer > a:not(.button) {
-  color: inherit;
-  top: 0px;
-}
-.android .view footer > a.pressed:not(.button) {
-  border: 0px;
-  border-top: 1px solid #33b5e5;
-  border-radius: 0px;
-  background: none;
-}
-.android .view footer > a.icon.pressed:not(.button):before {
-  color: inherit;
-}
-.android .menuButton:after {
-  border-color: white;
-}
-.android .af-badge {
-  border: none;
-}
-.android .list {
-  background: inherit;
-  color: inherit;
-  border-color: #303030;
-}
-.android .list .divider {
-  color: black;
-}
-.android .panel h2 {
-  color: inherit;
-}
-.android .collapsed:after {
-  border-top: 6px solid;
-}
-.android .collapsed:before {
-  border: 2px solid;
-}
-.android .expanded:after {
-  border-bottom: 6px solid;
-}
-.android .expanded:before {
-  border: 2px solid;
-}
-.android .afScrollbar {
-  background: white !important;
-}
-.android input[type="range"] {
-  -webkit-appearance: none;
-  background-color: #ccc;
-  height: 2px !important;
-  position: relative;
-  top: -10px;
-  margin-top: 15px;
-}
-.android input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  position: relative;
-  z-index: 1;
-  width: 21px;
-  height: 21px;
-  border-radius: 40px;
-  background: #33b5e5;
-}
-.android input.toggle + label:after {
-  color: inherit;
-}
-.android input.toggle + label {
-  border-radius: 0;
-}
-.android input.toggle + label > span {
-  border-radius: 0;
-  top: 0;
-  width: 27px;
-  height: 29px;
-}
-.android input.toggle:checked + label {
-  background: #33b5e5;
-}
-.android label {
-  color: inherit;
-}
-.android input[type="checkbox"] + label:before {
-  border-radius: 0;
-}
-.android input[type="checkbox"]:not(.toggle):checked + label:before {
-  color: #33b5e5;
-  background: white;
-}
-.android .button {
-  border-radius: 0;
-  border: none;
-  background: #424343;
-  border-color: transparent;
-  color: inherit;
-  text-shadow: none;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
-}
-.android .button.previous::after {
-  width: 20px;
-  height: 20px;
-  background-color: inherit;
-  top: 5px;
-  left: -12px;
-  border-radius: 0;
-  box-shadow: none;
-  border-color: transparent;
-}
-.android .button.next::after {
-  width: 20px;
-  height: 20px;
-  background-color: inherit;
-  top: 5px;
-  right: -12px;
-  border-radius: 0;
-  box-shadow: none;
-  border-color: transparent;
-}
-.android header .button-grouped > .button {
-  border-color: #777;
-}
-.android .button-grouped * {
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  border-left-width: 0;
-  box-shadow: none;
-}
-.android .button-grouped.vertical * {
-  border-left: 1px solid rgba(255, 255, 255, 0.25);
-  border-bottom-width: 0;
-}
-.android .button-grouped.vertical .button:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
-}
-.android .afPopup {
-  border: solid 1px #aaa;
-  padding: 0;
-  border-radius: 0;
-  -webkit-transform: none;
-  transform: none;
-  -webkit-transition: none;
-  transition: none;
-  background: inherit;
-  background-color: rgba(0, 0, 0, 0.9);
-  color: inherit;
-}
-.android .afPopup > HEADER {
-  font-weight: normal;
-  font-size: 20px;
-  text-align: left;
-  padding: 10px;
-}
-.android .afPopup > DIV {
-  font-size: 14px;
-  text-align: left;
-  padding: 10px;
-  margin: 0;
-  border-top: solid 1px #aaa;
-  border-bottom: solid 1px #aaa;
-}
-.android .afPopup > FOOTER {
-  background: #bbb;
-}
-.android .afPopup > FOOTER > A#cancel {
-  margin-left: 10px;
-  width: 120px;
-}
-.android .afPopup > FOOTER > A#action {
-  margin-right: 10px;
-  width: 120px;
-}
-.android .afPopup > FOOTER > A.center {
-  margin: 8px;
-}
-.android #af_actionsheet {
-  border: #666 1px solid;
-  border-top: #33b5e5 3px solid;
-  background: #555;
-  color: inherit;
-  margin: -20px 20px 0 20px;
-  padding: 0px;
-}
-.android #af_actionsheet a {
-  border-radius: 0;
-  border: 0px solid #777;
-  background: #424343;
-  color: inherit;
-  line-height: 50px;
-  margin-bottom: 1px;
-}
-.android #af_actionsheet a.cancel {
-  margin-bottom: 0px;
-  background: #424343;
-  color: red;
-}
-.android.light .menuButton:after {
-  border-color: black;
-}
-.android.light .afScrollbar {
-  background: black !important;
-}
-.android.light .button {
-  background: #eee;
-  border-color: #D1D1D1;
-}
-.android.light .afPopup {
-  background-color: rgba(255, 255, 255, 0.9);
-}
-.android.light #af_actionsheet {
-  border: #bbb 1px solid;
-  border-top: #33b5e5 3px solid;
-  background: #bbb;
-}
-.android.light #af_actionsheet a {
-  background: #fff;
-}
-.android .view .panel {
-  background: inherit;
-  color: inherit;
-}
-.android .collapsed:before,
-.android .expanded:before {
-  border-color: inherit;
-}
-.android .collapsed:after,
-.android .expanded:after {
-  border-top-color: inherit;
-}
-.android select,
-.android textarea,
-.android input[type="text"],
-.android input[type=search],
-.android input[type="password"],
-.android input[type="datetime"],
-.android input[type="datetime-local"],
-.android input[type="date"],
-.android input[type="month"],
-.android input[type="time"],
-.android input[type="week"],
-.android input[type="number"],
-.android input[type="email"],
-.android input[type="url"],
-.android input[type="tel"],
-.android input[type="color"],
-.android .input-group {
-  background: inherit;
-  color: inherit;
-  border: none;
-  border-radius: 0;
-  border-bottom: 1px solid #ccc;
-}
-.android:not(.light) input[type="radio"]:not(.toggle):checked + label:before {
-  background: #33b5e5;
-  border: 2px solid white;
-}
-.android .button.pressed,
-.android header .button-grouped  > .button.pressed {
-  background: #33b5e5;
-  border-color: #33b5e5;
-}
-.android .afPopup  > FOOTER  > A,
-.android.light .afPopup  > FOOTER  > A {
-  background: #fff;
-  color: #111;
-}
+
 
 .panel.active,
 .panel.animation-active {
@@ -3230,386 +3615,7 @@ li .icon:before {
 .overlayStatusbar {
   background: #f8f8f8;
 }
-.ios7 {
-  font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-.ios7 .view header {
-  background: #8BC34A;
-  color: inherit;
-  border: none;
-  border-bottom: 1px solid #c8c7cc;
-}
-.ios7 .view header .button {
-  color: #157dfb;
-  border-color: transparent;
-  font-size: 14px;
-  font-weight: normal;
-}
-.ios7 .view header h1 {
-  color: inherit;
-  text-shadow: none;
-}
-.ios7 .view header .backButton {
-  background: #f8f8f8;
-  color: #157dfb;
-  display: block;
-  position: absolute;
-  line-height: 44px;
-  left: 25px;
-  text-overflow: ellipsis;
-  font-size: 14px;
-  padding: 0;
-  text-shadow: none;
-  background-color: transparent;
-  border: none;
-  border-color: transparent;
-  height: 44px;
-  top: auto;
-  border-radius: 0;
-  box-shadow: none;
-  margin: 0;
-  padding-left: 0;
-  text-align: center;
-  width: 50px;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-.ios7 .view footer {
-  background: #f8f8f8;
-  color: black;
-  border-top: 1px solid #c8c7cc;
-  box-shadow: none;
-}
-.ios7 .view footer > a:not(.button) {
-  color: #606060;
-}
-.ios7 .view footer > a.pressed:not(.button) {
-  border-radius: 0;
-  background: transparent;
-}
-.ios7 .panel {
-  background: #eeeeee;
-}
-.ios7 .panel h2 {
-  color: inherit;
-}
-.ios7 .menuButton:after {
-  border-color: #157dfb;
-}
-.ios7 .list {
-  font-weight: normal;
-}
-.ios7 .list li {
-  margin-left: 10px;
-}
-.ios7 .list > li > a:after {
-  color: #d9d9d9;
-}
-.ios7 .button {
-  background-color: transparent;
-  box-shadow: none;
-  border-radius: 5px;
-  border-color: #157dfb;
-  color: #157dfb;
-  text-shadow: none;
-}
-.ios7 .backButton::before {
-  z-index: -1;
-  font-size: 22px;
-  position: absolute;
-  left: -20px;
-  text-align: center;
-  border-radius: 0;
-  border: none;
-  border-color: transparent;
-  box-shadow: none;
-  -webkit-transform: none;
-  transform: none;
-  font-family: 'chevron';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  content: "\f054";
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-  background-color: transparent;
-}
-.ios7 .backButton::after {
-  content: '';
-  width: 0;
-  height: 0;
-  border: none;
-}
-.ios7 .afPopup {
-  border: 1px solid #c8c7cc;
-  border-radius: 10px;
-  padding: 0px;
-  text-align: center;
-  color: inherit;
-  background: #f8f8f8;
-}
-.ios7 .afPopup > HEADER {
-  padding: 10px 0;
-}
-.ios7 .afPopup > DIV {
-  padding-bottom: 10px;
-}
-.ios7 .afPopup > FOOTER {
-  border-top: 1px solid #aaa;
-}
-.ios7 .afPopup > FOOTER > A.center {
-  width: 100%!important;
-}
-.ios7 .afPopup .button {
-  border: none;
-  width: 50%;
-  margin: 0;
-  background: transparent;
-  color: #157dfb;
-  padding: 12px 0;
-  border-radius: 0;
-}
-.ios7 .afPopup .button.pressed {
-  background: transparent;
-}
-.ios7 .afPopup a:not(:first-of-type) {
-  border-left: 1px solid #c8c7cc;
-}
-.ios7 .button.pressed {
-  font-weight: bold;
-  background: white;
-}
-.ios7 #af_actionsheet {
-  background-color: transparent;
-  color: black;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-top: transparent 1px solid;
-  box-shadow: 0px -1px 2px rgba(0, 0, 0, 0);
-}
-.ios7 #af_actionsheet a:first-child {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-.ios7 #af_actionsheet a:nth-last-child(2) {
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-.ios7 #af_actionsheet a.cancel {
-  font-weight: bold;
-  margin: 9px 0;
-  border-radius: 5px;
-  background-color: white;
-  color: #157dfb;
-}
-.ios7 #af_actionsheet a.red {
-  background-color: white;
-  color: red;
-}
-.ios7 .button.previous {
-  border: none;
-}
-.ios7 .button.next {
-  border: none;
-}
-.ios7 .button.previous::after {
-  color: #157dfb;
-  z-index: -1;
-  font-size: 22px;
-  position: absolute;
-  top: 2px;
-  left: -25px;
-  text-align: center;
-  border-radius: 0;
-  border: none;
-  border-color: transparent;
-  box-shadow: none;
-  -webkit-transform: none;
-  transform: none;
-  font-family: 'chevron';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  content: "\f054";
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
-  background-color: transparent;
-}
-.ios7 .button.next::after {
-  color: #157dfb;
-  z-index: -1;
-  font-size: 22px;
-  position: absolute;
-  top: 6px;
-  right: -25px;
-  text-align: center;
-  border-radius: 0;
-  border: none;
-  border-color: transparent;
-  box-shadow: none;
-  -webkit-transform: none;
-  transform: none;
-  font-family: 'chevron';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  content: "\f054";
-  background-color: transparent;
-}
-.ios7 .button.gray {
-  color: #999;
-  background-color: transparent;
-}
-.ios7 .button.yellow {
-  color: #F1C222;
-  background-color: transparent;
-}
-.ios7 .button.red {
-  color: #b20000;
-  background-color: transparent;
-}
-.ios7 .button.green {
-  color: #009C0C;
-  background-color: transparent;
-}
-.ios7 .button.orange {
-  color: #FF8000;
-  background-color: transparent;
-}
-.ios7 .button.black {
-  color: black;
-  background-color: transparent;
-}
-.ios7 .button.slate {
-  color: #171F28;
-  background-color: transparent;
-}
-.ios7 .af-badge {
-  border: none;
-  box-shadow: none;
-  font-size: 12px;
-}
-.ios7 input[type="range"] {
-  -webkit-appearance: none;
-  background-color: #c7c7c7;
-  height: 2px;
-  position: relative;
-  top: -10px;
-  margin-top: 15px;
-  border-radius: 2px;
-}
-.ios7 input[type="range"]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  position: relative;
-  z-index: 1;
-  width: 25px;
-  height: 25px;
-  border-radius: 60px;
-  border: 1px solid #c7c7c7;
-  background: white;
-}
-.ios7 input.toggle:checked + label {
-  background: #4cd964;
-  line-height: -1em;
-  -webkit-transition: background 150ms;
-  transition: background 150ms;
-}
-.ios7 input.toggle:checked + label > span {
-  transform: translate3d(24px, 0, 0);
-  -webkit-transform: translate3d(24px, 0, 0);
-}
-.ios7 input.toggle + label:after {
-  content: '';
-}
-.ios7 input.toggle + label {
-  position: relative;
-  margin: 5px;
-  border-radius: 50px;
-  display: block;
-  height: 28px;
-  width: 50px;
-  border: 1px solid #c7c7c7;
-  left: 33%;
-  float: none;
-}
-.ios7 input.toggle + label > span {
-  background: white;
-  border: 1px solid #c7c7c7;
-  top: -1px;
-  left: -1px;
-  height: 29px;
-}
-.ios7 .button-grouped:not(.vertical) > .button:first-child {
-  border-top-left-radius: 6px;
-  border-bottom-left-radius: 6px;
-}
-.ios7 .button-grouped:not(.vertical) > .button:last-child {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
-.ios7 .button-grouped *,
-.ios7 .button-grouped  > .button:first-child,
-.ios7 .button-grouped.vertical *,
-.ios7 .button-grouped.vertical  > .button:last-child,
-.ios7 header .button-grouped  > .button {
-  border-color: #157dfb;
-}
-.ios7 .button-grouped  > .button {
-  border-radius: 0;
-}
-.ios7 .button-grouped  > .button.pressed,
-.ios7 header .button-grouped  > .button.pressed {
-  color: white;
-  background: #157dfb;
-}
-.ios7 #af_actionsheet a,
-.ios7 #af_actionsheet a.cance {
-  background-image: none;
-  text-shadow: none;
-  box-shadow: none;
-  font-weight: normal;
-  border-radius: 0;
-  border: none;
-  -webkit-box-shadow: none;
-  color: #157dfb;
-  background-color: white;
-  cursor: pointer;
-  border-radius: 0px;
-  line-height: 40px;
-  font-size: 20px;
-  margin-bottom: 1px;
-}
-.ios7 footer  > a.pressed:not(.button),
-.ios7 footer  > a.icon.pressed:not(.button):before {
-  color: #157dfb;
-}
-.ios7 input.toggle + label:before,
-.ios7 input.toggle:checked + label:before {
-  content: '';
-}
-.ios7 input[type="radio"]:checked:not(.toggle) + label:before,
-.ios7 input[type="checkbox"]:checked:not(.toggle) + label:before {
-  background: #007aff;
-  color: white;
-}
-.ios7 input[type="radio"]:not(.toggle) + label:before,
-.ios7 input[type="checkbox"]:not(.toggle) + label:before {
-  background: white;
-  border: 1px solid #c7c7c7;
-  border-radius: 30px;
-}
+
 
 .list {
   margin: 0px;
