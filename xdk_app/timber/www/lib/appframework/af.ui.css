@@ -1,21 +1,50 @@
+.vote {
+    background-size: 30px 30px;
+    background-repeat: no-repeat;
+    width:30px;
+    height: 30px;
+    position: absolute;
+}
+.up_white{
+    background-image: url("../../img/up_white.png");
+}
+
+.up_green{
+    background-image: url("../../img/up_green.png");
+}
+
+.down_white{
+    background-image: url("../../img/down_white.png");
+}
+
+.down_green{
+    background-image: url("../../img/down_green.png");
+}
+
 .ios7 {
   font-family: 'HelveticaNeue', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
 }
 .ios7 .view{
     background: #ebebeb; 
     color: #fff;
+    font-weight: 100;
 }
 .ios7 .view header {
   background: #8BC34A;
   color: #fff;
   border: none;
   border-bottom: 1px solid #c8c7cc;
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75);
+    font-weight: 100;
 }
 .ios7 .view header .button {
   color: #fff;
   border-color: transparent;
   font-size: 14px;
   font-weight: normal;
+    font-weight: 100;
 }
 .ios7 .view header h1 {
   color: inherit;
@@ -45,6 +74,7 @@
   width: 50px;
   padding: 0 !important;
   margin: 0 !important;
+    font-weight: 100;
 }
 .ios7 .view footer {
   background: #f8f8f8;
@@ -388,6 +418,8 @@
 .android .view,
 .android .view .pages {
   font: 14px 'Roboto', sans-serif;
+    font-family: 'Lato', sans-serif;
+    font-weight: 100;
   background: #ebebeb;
   color: #fff;
   border-color: #fff;
@@ -401,6 +433,8 @@
   background: #8BC34A;
   color: inherit;
   border-color: #689F38;
+    box-shadow: 0px 0px 10px -4px rgba(0, 0, 0, 0.75);
+    font-weight: 100;
 }
 .android .view header .button {
   color: inherit;
@@ -2192,10 +2226,12 @@ body #af_actionsheet a {
   border: none;
   border-bottom: 1px solid #689F38;
   color: #ffffff;
+    font-weight: 100;
 }
 .view header h1 {
   text-shadow: none;
   width: 45%;
+    font-weight: 100;
 }
 .view header .backButton {
   background: #f9f9f9;
@@ -3761,15 +3797,16 @@ p {
   z-index: 250;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  height: 44px;
+  height: 54px;
   left: 0;
   right: 0;
+    font-weight: 100;
 }
 .view header h1 {
   position: absolute;
   width: 45%;
   z-index: 1;
-  height: 44px;
+  height: 54px;
   font-size: 18px;
   font-weight: bold;
   left: 27.5%;
@@ -3780,6 +3817,7 @@ p {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+    font-weight: 100;
 }
 .view footer {
   z-index: 180;

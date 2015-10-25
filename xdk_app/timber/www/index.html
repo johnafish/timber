@@ -10,11 +10,21 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <META HTTP-EQUIV="Pragma" CONTENT="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+        <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="js/rsvp.min.js"></script>
+<script src="js/geofire.min.js"></script>
+<script src="js/timber.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSvB66Bvb1NwyMblo_HtvhgIzbY_T9_Q4&callback=initMap"></script>
+
+
 
     <link rel="stylesheet" type="text/css" href="lib/appframework/icons.css" />
     <link rel="stylesheet" type="text/css" href="lib/appframework/af.ui.css" />
-
-    <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Lato:400, 300' rel='stylesheet' type='text/css'>
+        
+<!--    <script type="text/javascript" charset="utf-8" src="lib/jquery.min.js"></script>-->
     <script type="text/javascript" charset="utf-8" src="lib/fastclick.min.js"></script>
     <script type="text/javascript" charset="utf-8" src="lib/appframework/appframework.ui.min.js"></script>
        <style>
@@ -28,7 +38,7 @@
 
           display: block;
           background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/eb/Ash_Tree_-_geograph.org.uk_-_590710.jpg');
-            background-size: 100% 100%;
+            background-size: 110% 110%;
     background-repeat: no-repeat;
           width: 110%;
           height: 110%;
@@ -48,13 +58,14 @@
           margin-left: 20px;
           margin-right: 20px;
         }
+           
+           header {
+                padding: 5px 0px;  
+           }
         </style>
 
         
-        <script>
-        
-        
-        </script>
+       
         
 </head>
 
@@ -73,14 +84,16 @@
         <header>
             <h1>Home</h1>
             <a href="#profilePage" data-transition="flip" class="button icon user" style="float:left"></a>
+            
+            <a href="#treePage" data-transition="pop" treeId="bob" class="button icon user" style="float:left"> </a>
         </header>
 
         <div class="pages">
             <!-- main panel -->
             <div class="panel" title="TIMBER" id="mainPage" data-footer="none" selected="true">
                 
-                <div id="map">map goes here
-                <a href="#treePage" data-transition="pop" treeId="bob" onclick="blurTree"> click here to go tree</a>
+                <div id="map" style="display: block; margin: auto; width: 90%; height: 100%;">
+                
                 </div>
             </div>
         </div>
@@ -95,13 +108,20 @@
         <div class="pages">
             <!-- main panel -->
             <div class="panel" title="Tree" id="treePage" data-footer="none" selected="true">
-                <div class="content" style = "text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.6); color: #fff;">
-                    <div style = "position: absolute;">
-                    <br>
+                <div class="content" style = "text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3); color: #fff;">
+                    <div style = "position: absolute; width: 100%;">
+                    <div style = "float:left; margin-top: 20px;">
+                        <h1> Tree Name</h1>
                         <br>
-                    <h1> Tree Name</h1>
-                        <br>
-                    <h2> Address </h2>
+                        <h2> Address </h2>
+                    </div>
+                        
+                        <div style = "float:right; font-size: 28px; margin-top: 40px; margin-right: 20px;"> 
+                            <div class = "vote up_white" style="margin-top:-25px; margin-left: 2px;"> </div> 
+                            42
+                            <div class = "vote down_white" style = "margin-left:1px;"> </div>
+                        </div>
+                        <div style = "clear:both;"></div>
                     </div>
                     
                     <div style = "position: absolute; background-color:rgba(255, 255, 255, 0.5); margin-top:50%; border-radius: 100px; width: 200px; height:200px; margin-left: auto; margin-right:auto;left: 0; right: 0; ">

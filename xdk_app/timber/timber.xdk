@@ -2,10 +2,10 @@
   "project": {
     "projectSettingsVersion": "2.0.0",
     "creationData": {
-      "projectTypeName": "com.intel.xdk.projecttype.webapp",
+      "projectTypeName": "com.intel.xdk.projecttype.jsapp",
       "src": "webapp/template-flip-view/sample.zip",
       "projectGuid": "576065ed-dfb4-45b2-a9c9-1c46235d0c8e",
-      "lastModifiedDate": 1445710346365,
+      "lastModifiedDate": 1445781889689,
       "creationDate": 1445710346177
     },
     "sourceDirectory": "www",
@@ -22,12 +22,37 @@
       }
     },
     "libraries": [],
-    "cordovaPlugins": [],
+    "cordovaPlugins": [
+      {
+        "id": "cordova-plugin-geolocation",
+        "name": "Geolocation",
+        "version": "1.0.1",
+        "originType": "repo",
+        "origin": "https://github.com/apache/cordova-plugin-geolocation",
+        "gitref": "",
+        "subdir": ".",
+        "paramvals": {},
+        "sourceLocation": "plugins/cordova-plugin-geolocation",
+        "selectedState": "Included",
+        "checksum": "2cb3083e",
+        "dependsOn": [],
+        "topLevel": true,
+        "permissions": {
+          "android:name": [
+            "android.permission.ACCESS_COARSE_LOCATION",
+            "android.permission.ACCESS_FINE_LOCATION"
+          ]
+        },
+        "description": "Cordova Geolocation Plugin",
+        "data": {},
+        "dependedBy": []
+      }
+    ],
     "serviceMethods": [],
     "buildConfigurations": {
       "Android": {
         "platform_": "android",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "Android",
         "preferences_": {
           "android-minSdkVersion": "14",
@@ -36,7 +61,7 @@
         },
         "isActive_": true,
         "appName_": "timber",
-        "appID_": "not.yet.specified",
+        "appID_": "com.timber.timberapp",
         "appAccess_": {
           "mode": "legacy",
           "network": [
@@ -47,7 +72,7 @@
         },
         "icons_": [],
         "splashes_": [],
-        "addlPermissions_": "",
+        "addlPermissions_": "ACCESS_FINE_LOCATION",
         "excludedLibraries_": "",
         "iosProvs_": [],
         "cordovaCLIVersion_": "5.1.1",
@@ -58,7 +83,7 @@
       },
       "Android-Crosswalk": {
         "platform_": "android",
-        "runtime_": "W3C on Crosswalk",
+        "runtime_": "Crosswalk with Cordova 3.x",
         "name_": "Android-Crosswalk",
         "preferences_": {
           "android-minSdkVersion": "14",
@@ -67,7 +92,7 @@
         },
         "isActive_": true,
         "appName_": "timber",
-        "appID_": "not.yet.specified",
+        "appID_": "com.timber.timberapp",
         "appAccess_": {
           "mode": "legacy",
           "network": [
@@ -78,18 +103,18 @@
         },
         "icons_": [],
         "splashes_": [],
-        "addlPermissions_": "",
+        "addlPermissions_": "ACCESS_FINE_LOCATION",
         "excludedLibraries_": "",
         "iosProvs_": [],
         "cordovaCLIVersion_": "5.1.1",
         "appVersion_": "0.0.1",
         "appAuthor_": "Intel XDK",
         "appVersionCode_": "1",
-        "crosswalkVersion_": "14"
+        "crosswalkVersion_": "15"
       },
       "iOS": {
         "platform_": "ios",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "iOS",
         "preferences_": {
           "ios-target": "6",
@@ -97,7 +122,7 @@
         },
         "isActive_": true,
         "appName_": "timber",
-        "appID_": "not.yet.specified",
+        "appID_": "timber.timberapp.com",
         "appAccess_": {
           "mode": "legacy",
           "network": [
@@ -117,7 +142,7 @@
       },
       "Windows8": {
         "platform_": "windows8",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "Windows8",
         "preferences_": {},
         "isActive_": true,
@@ -145,7 +170,7 @@
         "runtime_": "W3C",
         "name_": "WebApp",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
@@ -168,7 +193,7 @@
         "runtime_": "W3C on Firefox OS",
         "name_": "Firefox",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
@@ -191,7 +216,7 @@
         "runtime_": "W3C on Chrome OS",
         "name_": "Chrome",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
@@ -214,7 +239,7 @@
         "runtime_": "W3C on Facebook",
         "name_": "Facebook",
         "preferences_": {},
-        "isActive_": true,
+        "isActive_": false,
         "appName_": "timber",
         "appID_": "not.yet.specified",
         "appAccess_": {
@@ -234,7 +259,7 @@
       },
       "WP81": {
         "platform_": "wp81",
-        "runtime_": "W3C on Cordova",
+        "runtime_": "Cordova 3.x",
         "name_": "WP81",
         "preferences_": {},
         "isActive_": true,
