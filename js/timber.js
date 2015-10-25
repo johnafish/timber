@@ -7,7 +7,7 @@ var latitude = -80.5256895;
 var longitude = 43.4633228;
 var numtrees = 0;
 
-var queryRadius = 0.3;
+var queryRadius = 20.3;
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
@@ -23,34 +23,36 @@ var markers = {};
 var watchPosition = navigator.geolocation.watchPosition(function(position) {
   latitude = position.coords.longitude;
   longitude = position.coords.latitude;
-  var treeQuery = geoFire.query({
-      center: [latitude,longitude],
-      radius: queryRadius
-  });
+  // var treeQuery = geoFire.query({
+  //     center: [latitude,longitude],
+  //     radius: queryRadius
+  // });
 
   var person = {lat: longitude, lng: latitude}
-  removeMarkers();
+  if (markers['person'] != undefined) {
+    removeTree('person');
+  }
   createPerson(person);
   map.setCenter(person);
 
-  treeQuery.on("key_entered", function(key,location,distance){
-      currentDistance = distanceBetween(longitude, latitude, location[1], location[0], "K")
-      if(currentDistance<closestDistance){
-          closestDistance=currentDistance;
-          closestKey = key;
-      }
-      treeReference.child(key).on("value", function(snapshot) {
-      	tree = snapshot.val();
-      	fireBaseReference.child("_geofire").child(key).on("value", function(snap) {
-      		treeGeo = snap.val();
-      		createTree(treeGeo, key);
-      	})
-      })
-  });
+  // treeQuery.on("key_entered", function(key,location,distance){
+  //     currentDistance = distanceBetween(longitude, latitude, location[1], location[0], "K")
+  //     if(currentDistance<closestDistance){
+  //         closestDistance=currentDistance;
+  //         closestKey = key;
+  //     }
+  //     treeReference.child(key).on("value", function(snapshot) {
+  //     	tree = snapshot.val();
+  //     	fireBaseReference.child("_geofire").child(key).on("value", function(snap) {
+  //     		treeGeo = snap.val();
+  //     		createTree(treeGeo, key);
+  //     	})
+  //     })
+  // });
 
-  treeQuery.on("key_exited", function(key,location,distance){
-    removeTree(key);
-  });
+  // treeQuery.on("key_exited", function(key,location,distance){
+  //   removeTree(key);
+  // });
 
   if(closestDistance<0.01 && closestKey!=lastKey){
       lastKey = closestKey;
@@ -59,6 +61,30 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
 }, function error(err){
     console.log("error");
 }, options);
+
+var treeQuery = geoFire.query({
+    center: [latitude,longitude],
+    radius: queryRadius
+});
+
+treeQuery.on("key_entered", function(key,location,distance){
+    currentDistance = distanceBetween(longitude, latitude, location[1], location[0], "K")
+    if(currentDistance<closestDistance){
+        closestDistance=currentDistance;
+        closestKey = key;
+    }
+    treeReference.child(key).on("value", function(snapshot) {
+      tree = snapshot.val();
+      fireBaseReference.child("_geofire").child(key).on("value", function(snap) {
+        treeGeo = snap.val();
+        createTree(treeGeo, key);
+      })
+    })
+});
+
+  treeQuery.on("key_exited", function(key,location,distance){
+    removeTree(key);
+  });
 
 var treeGeo;
 
