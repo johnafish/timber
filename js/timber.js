@@ -32,6 +32,17 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
 
   var closestDistance = Infinity;
   for (var i in markers) {
+      if(closestDistance<0.01){
+          if (closestKey!=lastKey) {
+              lastKey = closestKey;
+              treeReference.child(closestKey).once("value", function(snapshot) {
+                  var closestTree = snapshot.val();
+                  showPopUp(closestKey, closestTree.type, closestTree.address);
+              });
+          }
+      } else {
+          closePopup();
+      }
       if(i=='person'){
           continue;
       } else{
@@ -41,17 +52,6 @@ var watchPosition = navigator.geolocation.watchPosition(function(position) {
           if(distance<closestDistance){
               closestDistance=distance;
               closestKey=i;
-          }
-          if(closestDistance<0.01){
-              if (closestKey!=lastKey) {
-                  lastKey = closestKey;
-                  treeReference.child(closestKey).once("value", function(snapshot) {
-                      var closestTree = snapshot.val();
-                      showPopUp(closestKey, closestTree.type, closestTree.address);
-                  });
-              }
-          } else {
-              closePopup();
           }
       });
   }
