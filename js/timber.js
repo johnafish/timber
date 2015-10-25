@@ -7,7 +7,7 @@ var latitude = -80.5256895;
 var longitude = 43.4633228;
 var numtrees = 0;
 
-var queryRadius = 0.2;
+var queryRadius = 0.5;
 var options = {
   enableHighAccuracy: true,
   timeout: 5000,
@@ -61,19 +61,8 @@ function createPerson(position) {
       optimized: true,
       map: map
     });
-    var circle = new google.maps.Circle({
-    strokeColor: "#6D3099",
-    strokeOpacity: 0.7,
-    strokeWeight: 1,
-    fillColor: "#B650FF",
-    fillOpacity: 0.35,
-    map: map,
-    center: position,
-    radius: 2*(queryRadius * 1000),
-    draggable: false
-  });
   markers.push(marker);
-  markers.push(circle);
+
 }
 
 function createTree(tree) {
