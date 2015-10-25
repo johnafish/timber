@@ -14,7 +14,7 @@ $time = $_GET["time"];
     <h1>LET'S <span>TREE</span>TUP</h1>
 </header>
     <h2 id="when"></h2>
-    <div id="map"></div>
+    <div id="dap"></div>
 <script src="https://cdn.firebase.com/js/client/2.2.5/firebase.js"></script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDSvB66Bvb1NwyMblo_HtvhgIzbY_T9_Q4&callback=initMap"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -66,7 +66,7 @@ function setPosition() {
 function initMap(){
     var place = {lat:43.4617098 , lng: -80.5097937};
 
-    var map = new google.maps.Map(document.getElementById('map'), {
+    var dap = new google.maps.Map(document.getElementById('dap'), {
         center: place,
         scrollwheel: false,
         zoom: 18
@@ -78,9 +78,9 @@ function initMap(){
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             }
-            map.setCenter(you);
+            dap.setCenter(you);
             var directionsDisplay = new google.maps.DirectionsRenderer({
-                map: map
+                map: dap
             });
             geoFire.child(tree).on("value", function(snapshot) {
             	var tree = snapshot.val();
