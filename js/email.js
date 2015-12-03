@@ -1,9 +1,9 @@
 function sendMail(treeID) {
-
+    var treeData, treeType, treeLong, treeLat;
     var flaggedTree = treeReference.child(treeID.toString());
     var flaggedGeo = fireBaseReference.child("_geofire").child(treeID.toString());
-    var treeData, treeType, treeLong, treeLat;
 
+    //Async update tree type and latitude/longitude
     flaggedTree.once("value", function(snapshot) {
       treeType = snapshot.val().type;
     });
@@ -12,9 +12,7 @@ function sendMail(treeID) {
       treeLong = snapshot.val().l[0];
       treeLat = snapshot.val().l[1];
     });
-
-
-
+    //Send email to the issues email via mandrill
     $.ajax({
       type: 'POST',
       url: 'https://mandrillapp.com/api/1.0/messages/send.json',
